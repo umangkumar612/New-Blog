@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Create Your Account</title>
+    <style>
+      body {
+        /* A vibrant, modern linear gradient */
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family: 'Poppins', sans-serif; /* Using the custom font */
+        color: #333;
+      }
+
+      .form-wrapper {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .signup-card {
+        max-width: 450px;
+        width: 100%;
+        /* The "Glassmorphism" effect */
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        padding: 2.5rem;
+        color: white; /* Text color on the card */
+      }
+
+      .signup-card h2 {
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+      
+      .form-label {
+        font-weight: 500;
+      }
+
+      .form-control {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 0.5rem;
+        color: white;
+        padding-left: 2.5rem; /* Space for the icon */
+      }
+      
+      .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      
+      .form-control:focus {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border-color: #fff;
+        box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+      }
+
+      .input-group-icon {
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+        z-index: 5;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .btn-primary {
+        background: #8e2de2; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #4a00e0, #8e2de2);
+        background: linear-gradient(to right, #4a00e0, #8e2de2);
+        border: none;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .form-text a {
+        color: #f0f0f0;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .form-text a:hover {
+        text-decoration: underline;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- The nav bar might look out of place with this full-page design.
+         You might want to create a separate layout for auth pages without the nav. -->
+    <%- include('./partials/nav') %>
+
+    <div class="form-wrapper">
+      <div class="signup-card">
+        <h2>Create Account</h2>
+        <form action="/user/signup" method="post">
+          <div class="mb-3 position-relative">
+            <label for="fullName" class="form-label">Full Name</label>
+            <i class="bi bi-person input-group-icon"></i>
+            <input
+              type="text"
+              class="form-control"
+              id="fullName"
+              name="fullName"
+              placeholder="John Doe"
+              required
+            />
+          </div>
+          <div class="mb-3 position-relative">
+            <label for="email" class="form-label">Email address</label>
+            <i class="bi bi-envelope input-group-icon"></i>
+            <input
+              type="email"
+              name="email"
+              class="form-control"
+              id="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+          <div class="mb-3 position-relative">
+            <label for="password" class="form-label">Password</label>
+            <i class="bi bi-lock input-group-icon"></i>
+            <input
+              name="password"
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 mt-3">Sign Up</button>
+        </form>
+        <div class="form-text text-center mt-3">
+          Already have an account? <a href="/user/signin">Log In</a>
+        </div>
+      </div>
+    </div>
+
+    <%- include('./partials/scripts') %>
+  </body>
+</html>

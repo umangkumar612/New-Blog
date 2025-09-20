@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forgot Password</title>
+</head>
+<body>
+  <h2>Forgot Password</h2>
+  <% if (error) { %><p style="color:red"><%= error %></p><% } %>
+  <% if (message) { %><p style="color:green"><%= message %></p><% } %>
+  <form method="post" action="/user/forgot">
+    <input type="email" name="email" placeholder="Enter your email" required />
+    <button type="submit">Send Reset Link</button>
+  </form>
+</body>
+</html>
